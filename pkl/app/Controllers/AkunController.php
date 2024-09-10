@@ -5,15 +5,12 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\ModelAkun;
+use App\Models\ModelDetailakun;
 use Config\Email;
 
 class AkunController extends BaseController
 {
-    protected $ModelAkun;
-    public function __construct()
-    {
-        $this->ModelAkun = new ModelAkun();
-    }
+
     public function index()
     {
         $akun = $this->ModelAkun->findAll();
@@ -67,5 +64,15 @@ class AkunController extends BaseController
         return redirect()->to('akun');
     }
 
+    public function detail()
+    {
+        $akun = $this->ModelAkun->findAll();
+        $detailakun = $this->ModelDetailakun->findAll();
+        $data = [
+            'akun' => $akun,
+            'detailakun' => $detailakun
+        ];
+        return view('Akun/Detail/index', $data);
+    }
 
 }

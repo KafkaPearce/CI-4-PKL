@@ -8,6 +8,17 @@
     
 </head>
 <body>
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    </nav>
+    <!-- end Navbar -->
+    
     <!-- form -->
     <div class="container">
             <form action="<?php base_url() ?>/akun/save" method="post">
@@ -55,6 +66,7 @@
         <td>
                 <a class="btn btn-secondary" href="<?php base_url() ?>/akun/edit/<?= base64_encode($a['email']) ?>">Edit</a>
             <a class="btn btn-danger" href="<?php base_url() ?>/akun/delete/<?= base64_encode($a['email']) ?>" >Delete</a>
+            <a class="btn btn-success" href="<?php base_url() ?>/akun/detail/">Detail</a>
             </td>
         </tr>
     <?php endforeach ?>
@@ -65,5 +77,8 @@
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <!-- footer -->
+    <footer class="fixed-bottom text-center bg-primary text-white">Kafka♠️</footer>
+    <!-- end footer -->
 </body>
 </html>

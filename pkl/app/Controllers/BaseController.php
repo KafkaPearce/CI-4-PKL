@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelDetailAkun;
 use App\Models\ModelAkun;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
@@ -55,6 +56,18 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        
 }
+    protected $ModelAkun;
+    public function __construct()
+    {
+        $this->ModelAkun = new ModelAkun();
+    }
+
+    protected $ModelDetailakun;
+    public function __construct2()
+    {
+        $this->ModelDetailakun = new ModelDetailakun();
+    }
 
 }
