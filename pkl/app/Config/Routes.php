@@ -12,3 +12,4 @@ $routes->post('akun/save', 'AkunController::save');
 $routes->get('akun/edit/(:segment)', 'AkunController::edit/$1');
 $routes->post('akun/update/', 'AkunController::update/$1');
 $routes->get('akun/delete/(:segment)', 'AkunController::delete/$1');
+$routes->get('detail', 'AkunController::detail');

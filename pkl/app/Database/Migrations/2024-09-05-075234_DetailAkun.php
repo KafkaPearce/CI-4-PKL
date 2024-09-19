@@ -33,7 +33,12 @@ class DetailAkun extends Migration
             ],
             'alamat' => [
                 'type' => 'TEXT'
-        ]
+            ],
+            'Foto' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => false
+            ]
         ]);
 
         $this->forge->addKey('id_detail_akun', true);

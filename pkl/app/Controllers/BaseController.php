@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelDetailAkun;
 use App\Models\ModelAkun;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
@@ -27,8 +28,11 @@ abstract class BaseController extends Controller
      *
      * @var CLIRequest|IncomingRequest
      */
-    protected $request;
 
+    protected $request;
+    
+    protected $modelAkun;
+    protected $modelDetailakun;
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -51,10 +55,12 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
+        
         // Preload any models, libraries, etc, here.
-
+        
         // E.g.: $this->session = \Config\Services::session();
-}
-
+        
+        $this->modelAkun = new ModelAkun();
+        $this->modelDetailakun = new ModelDetailakun();
+    }
 }

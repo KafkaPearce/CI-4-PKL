@@ -3,20 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\ModelAkun;
-use Config\Email;
 
 class AkunController extends BaseController
 {
-    protected $ModelAkun;
-    public function __construct()
-    {
-        $this->ModelAkun = new ModelAkun();
-    }
+
     public function index()
     {
-        $akun = $this->ModelAkun->findAll();
+        $akun = $this->modelAkun->findAll();
 
         $data = [
             'akun' => $akun
@@ -28,12 +22,21 @@ class AkunController extends BaseController
     {
         $password = md5($this->request->getPost('password'));
         $this->request->getPost();
-        $this->ModelAkun->insert([
+        $this->modelAkun->insert([
             
             'email' => $this->request->getPost('email'),
             'password' => $password,
             'status' => $this->request->getPost('status')
         ]);
+
+        $this->modelDetailakun->where('akun', 'akun.email = detail_akun.email')->insert(
+            [
+                'email' => $this->request->getPost('email'),
+                'nama' => $this->request->getPost('nama'),
+                'notelp' => $this->request->getPost('no_telp'),
+                'alamat' => $this->request->getPost('alamat'),
+            ]
+        );
 
         return redirect()->to('akun');
     } 
@@ -41,14 +44,14 @@ class AkunController extends BaseController
     public function delete($id)
     {
         $id = base64_decode($id);
-        $this->ModelAkun->delete($id);
+        $this->modelAkun->delete($id);
         return redirect()->to('akun');
     }
 
     public function edit($id)
     {
         $id = base64_decode($id);
-        $akun = $this->ModelAkun->find($id);
+        $akun = $this->modelAkun->find($id);
         $data = [
             'akun' => $akun
         ];
@@ -58,7 +61,7 @@ class AkunController extends BaseController
 
     public function update()
     {
-        $this->ModelAkun->save([
+        $this->modelAkun->save([
             'email' => $this->request->getPost('email'),
             'password' => $this->request->getPost('password'),
             'status' => $this->request->getPost('status')
@@ -67,5 +70,14 @@ class AkunController extends BaseController
         return redirect()->to('akun');
     }
 
+    public function detail()
+    {
+        $akun = $this->modelDetailakun
+        ->join('akun', 'akun.email = detail_akun.email')->findAll();
+                $data = [
+            'akun' => $akun
+        ];
+        return view('Detail/index', $data);
+    }
 
 }
