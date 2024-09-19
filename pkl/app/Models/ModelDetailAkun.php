@@ -12,7 +12,7 @@ class ModelDetailakun extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_detail_akun','email', 'nama', 'no_telp', 'alamat', 'Foto'];
+    protected $allowedFields    = ['email', 'nama', 'no_telp', 'alamat', 'Foto'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

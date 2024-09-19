@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap demo</title>
+        <title>Detail</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
@@ -19,7 +19,15 @@
                     </tr>
                 </thead>
                 <tbody>
-            
+                    <?php foreach($akun as $d) :?>
+                    <tr>
+                        <td><?= $d['email'] ?></td>
+                        <td><?= $d['nama'] ?></td>
+                        <td><?= $d['no_telp'] ?></td>
+                        <td><?= $d['alamat'] ?></td>
+                        <td><img src="/img/<?= $d['Foto'] ?>" width="100"></td>
+                    </tr>
+                    <?php endforeach; ?>
             </tbody>
             </table>
         </div>

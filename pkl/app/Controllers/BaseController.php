@@ -28,8 +28,11 @@ abstract class BaseController extends Controller
      *
      * @var CLIRequest|IncomingRequest
      */
-    protected $request;
 
+    protected $request;
+    
+    protected $modelAkun;
+    protected $modelDetailakun;
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -52,22 +55,12 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
+        
         // Preload any models, libraries, etc, here.
-
+        
         // E.g.: $this->session = \Config\Services::session();
         
-}
-    protected $ModelAkun;
-    public function __construct()
-    {
-        $this->ModelAkun = new ModelAkun();
+        $this->modelAkun = new ModelAkun();
+        $this->modelDetailakun = new ModelDetailakun();
     }
-
-    protected $ModelDetailakun;
-    public function __construct2()
-    {
-        $this->ModelDetailakun = new ModelDetailakun();
-    }
-
 }
