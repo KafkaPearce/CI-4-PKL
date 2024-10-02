@@ -21,7 +21,7 @@
     
     <!-- form -->
     <div class="container">
-            <form action="<?php base_url() ?>/akun/save" method="post">
+            <form action="<?php base_url() ?>/akun/save" method="post" enctype="multipart/form-data">
                 <?= csrf_field() ?>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -56,18 +56,23 @@
         <label for="alamat" class="form-label">Alamat</label>
         <input type="text" class="form-control" name="alamat" id="alamat">
     </div>
+
+    <div class="mb-3">
+        <label class="custom-file-label" for="foto">Foto</label>
+        <input type="file" class="form-control" id="foto" name="foto"
+    </div>
     
-<button type="submit" class="btn btn-primary">Tambah</button>
-<a class="btn btn-success" href="<?php base_url() ?>/detail/">Detail</a>
+<button type="submit" class="btn btn-primary mt-3">Tambah</button>
+<a class="btn btn-success mt-3" href="<?php base_url() ?>/detail/">Detail</a>
 </form>
 </div>
 <!-- end form -->
 
 <!-- Read -->
-<div class="container">
+<div class="container mt-3 text-center">
     <div class="row">
         <div class="col">
-            <table class="table">
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Email</th>

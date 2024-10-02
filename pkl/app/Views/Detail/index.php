@@ -8,8 +8,8 @@
     </head>
     <body>
         <div class="container">
-            <table class="table">
-                <thead>
+            <table class="table table-striped table-bordered text-center">
+                <thead class="table-primary fs-3">
                     <tr>
                     <th scope="col">Email</th>
                     <th scope="col">Nama</th>
@@ -18,14 +18,14 @@
                     <th scope="col">Foto</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-size: 20px;">
                     <?php foreach($akun as $d) :?>
                     <tr>
                         <td><?= $d['email'] ?></td>
                         <td><?= $d['nama'] ?></td>
                         <td><?= $d['no_telp'] ?></td>
                         <td><?= $d['alamat'] ?></td>
-                        <td><img src="/img/<?= $d['Foto'] ?>" width="100"></td>
+                        <td><img style="height: 100px;" src="<?= base_url() . '/img/' . $d['foto'] ?>" width="100px"></td>
                     </tr>
                     <?php endforeach; ?>
             </tbody>
